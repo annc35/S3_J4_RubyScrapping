@@ -23,7 +23,7 @@ def create_price_array
     price_array = []
     price = page.xpath('/html/body/div/div/div[2]/div[1]/div[2]/div/div[2]/div[3]/div/table/tbody/tr/td[5]/a')
     price.each do |price|
-        price_array << price.text.delete('$').to_f
+        price_array << price.text
     end
     puts price_array
     return price_array
@@ -44,9 +44,7 @@ end
 perform
 
 
-def hello
-    return "Hello World!"
-  end
+
 
 def remind_xpath
     page = Nokogiri::HTML(open("ton_url_a_scrapper.com")) #Ouvrir l'URL souhaitée sous Nokogiri et le stocker dans un objet page
